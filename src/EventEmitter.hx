@@ -1,6 +1,7 @@
 package;
 
 /**
+ * An event emitter class. 
  * ...
  * @author Damilare Akinlaja
  */
@@ -10,7 +11,6 @@ class EventEmitter
 	/**
 	 * Initialize a new `Emitter`.
 	 *
-	 * @api public
 	 */
 
 	public function new()
@@ -22,7 +22,6 @@ class EventEmitter
 	 *
 	 * @param {Object} obj
 	 * @return {EventEmitter}
-	 * @api private
 	 *
 	private function mixin(obj:EventEmitter):EventEmitter
 	{
@@ -41,7 +40,6 @@ class EventEmitter
 	 * @param {String} event
 	 * @param {Function} fn
 	 * @return {Emitter}
-	 * @api public
 	 */
 
 	public function on(event:String, fn:EventCallback):EventEmitter
@@ -64,7 +62,6 @@ class EventEmitter
 	 * @param {String} event
 	 * @param {Function} fn
 	 * @return {Emitter}
-	 * @api public
 	 */
 	public function addEventListener(event:String, fn:EventCallback):EventEmitter
 	{
@@ -78,7 +75,6 @@ class EventEmitter
 	 * @param {String} event
 	 * @param {Function} fn
 	 * @return {Emitter}
-	 * @api public
 	 */
 
 	public function once(event:String, fn:EventCallback):EventEmitter
@@ -96,7 +92,6 @@ class EventEmitter
 	 * @param {String} event
 	 * @param {Function} fn
 	 * @return {Emitter}
-	 * @api public
 	 */
 
 	public function off(?event:String, ?fn:EventCallback):EventEmitter
@@ -209,7 +204,6 @@ class EventEmitter
 	 *
 	 * @param {String} event
 	 * @return {Array}
-	 * @api public
 	 */
 
 	public function listeners(event:String):Array<Dynamic>
@@ -228,7 +222,6 @@ class EventEmitter
 	 *
 	 * @param {String} event
 	 * @return {Boolean}
-	 * @api public
 	 */
 
 	public function hasListeners(event:String):Bool

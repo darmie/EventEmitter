@@ -1,6 +1,9 @@
 package;
 
 /**
+ * The EventCallback class holds the callback function
+ * It also make both the callback and it's arguments accessible and assignable 
+ * 		from the class instance.
  * ...
  * @author Damilare Akinlaja
  */
