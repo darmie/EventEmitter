@@ -122,8 +122,6 @@ class EventEmitter
 		}
 
 		// remove specific handler
-
-	
 		var callbacks:Array<EventCallback> = this._callbacks.get(event);
 		for (i in 0...(callbacks.length))
 		{
@@ -145,12 +143,12 @@ class EventEmitter
 		return this.off(event, fn);
 	}
 
-	public function removeAllListeners(event:String, ?fn:EventCallback):EventEmitter
+	public function removeAllListeners():EventEmitter
 	{
-		return this.off(event, fn);
+		return this.off();
 	}
 
-	public function removeEventListener(event:String, ?fn:EventCallback):EventEmitter
+	public function removeEventListener(event:String, fn:EventCallback):EventEmitter
 	{
 		return this.off(event, fn);
 	}
