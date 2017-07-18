@@ -16,26 +16,26 @@ class Test
 		//function two(args:Array<Dynamic>) { calls.push('two'); return null; }
 		
 
-		var one:EventCallback = new EventCallback();
-		one.call = function()
+		var one:EventCallback = new EventCallback(function(args:Array<Dynamic>)
 		{
 			
 			calls.push('one');
 			//trace(one._args);
-			//calls.push(one._args[0]);
-		}
+			calls.push(args[0]);			
+		});
 
-		var two:EventCallback = new EventCallback();
-		two.call = function()
+
+		var two:EventCallback = new EventCallback(function(args:Array<Dynamic>)
 		{
 			calls.push('two');
-		}
+		});
+		
 
-		emitter.once('foo', one);
-		emitter.once('fee', one);
-		emitter.off('foo', one);
+		emitter.on('foo', one);
+		emitter.on('foo', two);
+		emitter.off('foo', two);
 
-		emitter.emit('foo');
+		emitter.emit('foo', [1]);
 		  /**emitter.once('foo', one);
 		  emitter.emit('foo', [1]);
 		  emitter.emit('foo', [2]);

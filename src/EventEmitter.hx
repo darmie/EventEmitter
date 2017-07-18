@@ -55,8 +55,6 @@ class EventEmitter
 			this._callbacks.set(event, [fn]);
 		}
 		
-		
-		trace(this._callbacks);
 		return this;
 	}
 
@@ -178,7 +176,7 @@ class EventEmitter
 		if (args != null)
 		{
 			_args = args.slice(0);
-			trace(args);
+			
 		}
 		else{
 			_args = [];
@@ -197,8 +195,8 @@ class EventEmitter
 				if(fn.once == true){
 					this.off(event, fn);
 				}
-				fn._args = _args;
-				fn.call();
+				
+				fn.call(_args);
 				
 			}
 		}
