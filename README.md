@@ -29,7 +29,7 @@ class Test
 		emitter.on('foo', two);
 		emitter.off('foo', two); //Turn off event listeners with name `foo`
 
-		emitter.emit('foo', [1]); //Trigger the event
+		emitter.emit('foo', [1]); //Trigger the event with an array of callback parameters
 		trace(calls); 
 	}
 
