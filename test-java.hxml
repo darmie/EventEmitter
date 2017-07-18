@@ -1,0 +1,4 @@
+-cp src
+-java bin
+-main Test
+-cmd java -jar bin/Test.jar
