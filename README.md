@@ -27,7 +27,7 @@ class Test
 
 		emitter.on('foo', one); //Register a named event listener;
 		emitter.on('foo', two);
-		emitter.off('foo', two); //Turn off event listeners with name `foo`
+		emitter.off('foo', two); //Turn off event listener called `foo` that has a function two
 
 		emitter.emit('foo', [1]); //Trigger the event with an array of callback parameters
 		trace(calls); 
