@@ -127,7 +127,7 @@ emitter.emit('event-name', ['message']) //Sends an array of arguments to the cal
 :
 This is a mixin that binds events emitter methods to a dynamic object. Must be used by adding `using {path.to.eventemitter.}EmitterTools;` at the top of your class;
 
-```
+```hx
 using EmitterTools;
 
 class Test{
