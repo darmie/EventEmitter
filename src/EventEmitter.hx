@@ -5,7 +5,7 @@ package;
  * ...
  * @author Damilare Akinlaja
  */
-class EventEmitter
+class EventEmitter implements IEmitter
 {
 	public var _callbacks:Map<String, Array<EventCallback>> = new Map<String, Array<EventCallback>>();
 	/**
@@ -14,7 +14,7 @@ class EventEmitter
 	 */
 
 	public function new()
-	{
+	{	
 	}
 
 	/**
@@ -22,17 +22,21 @@ class EventEmitter
 	 *
 	 * @param {Object} obj
 	 * @return {EventEmitter}
-	 *
-	private function mixin(obj:EventEmitter):EventEmitter
+	 * 
+	 * This would not work, please see EmitterTools
+	 * 
+	**
+	public function mixin(obj:Dynamic)
 	{
-		for (key in Type.getClassFields(Type.getClass(this)))
+		for (field in Type.getClassFields(Type.getClass(this)))
 		{
-			Reflect.setField(obj, key, Reflect.getProperty(this, key));
+		
+			Reflect.setProperty(obj, field, Reflect.getProperty(this, field));
 		}
 
 		return obj;
-	}
-	*/
+	}*/
+	
 
 	/**
 	 * Listen on the given `event` with `fn`.
@@ -100,9 +104,9 @@ class EventEmitter
 		// All
 		if (event == null)
 		{
-			for (key in this._callbacks)
+			for (key in this._callbacks.keys())
 			{
-				this._callbacks.remove(event);
+				this._callbacks.remove(key);
 			}
 
 			return this;
@@ -208,7 +212,7 @@ class EventEmitter
 	{
 		if (this._callbacks.exists(event))
 		{
-			return cast this._callbacks.get(event);
+			return this._callbacks.get(event);
 		}
 		else{
 			return [];
