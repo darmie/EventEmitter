@@ -151,7 +151,7 @@ class Test{
 ```
 
 ## Target Platforms supported
-: EventEmitter has been tested and works on C++, Java, AS3 and Neko. It fails on Javascript target, because I stored the events listeners in an HashMap, which is not working properly on javascript target. May have to use an alternative to HashMap. You should default to native EventEmitter that is built into Javascript runtime.
+: EventEmitter has been tested and works on C++, Java, AS3 and Neko. It fails on Javascript target, because I stored the events listeners in a key-value Map, which is not working properly on javascript target. May have to use an alternative to Haxe's Map API. You should default to native EventEmitter that is built into Javascript runtime.
 
 ## Haxe Version
 : Haxe 3.0+
